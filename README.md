@@ -1,8 +1,10 @@
 ### Visualising countries as layers on a Google Map
 
+First of all you need to get your own [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key). Go get one and replace `<put-your-Google-Maps-API-key-here>` with it.
+
 You need to get a web server to "host" the pages, so one is included as a Docker container.
 
-First of all make sure that Docker Engine is running.
+Make sure that Docker Engine is running.
 
 Then from the root of the project start the containerised Apache:
 

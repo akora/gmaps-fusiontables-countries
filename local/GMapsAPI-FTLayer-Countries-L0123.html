@@ -15,13 +15,47 @@
       query: {
         select: 'geometry',
         from: '1N2LBk4JHwWpOY4d9fobIn27lfnZ5MDy-NoqqRpk',
-        where: "ISO_2DIGIT IN ('HU')"
+        where: "ISO_2DIGIT IN ('HU',\
+          'AT','HR','RO','RS','SK','SI','UA',\
+          'AL','BA','BG','CZ','DE','IT','MK','MD','ME','PL','CH',\
+          'BE','DK','FR','GR','LT','LU','MC','NL','SE','TR'\
+        )"
       },
       styles: [{
-        // level 0
+        // level 0 - home country
         where: "ISO_2DIGIT IN ('HU')",
         polygonOptions: {
-          fillColor: "#aaffaa"
+          fillColor: "#ffffff" // white
+        }
+      }, {
+        // level 1 - direct neighbours
+        where: "ISO_2DIGIT IN ('AT','HR','RO','RS','SK','SI','UA')",
+        polygonOptions: {
+          fillColor: "#fff59d" // material design colors - yellow
+        }
+      }, {
+        // level 2 - 2nd neighbours
+        where: "ISO_2DIGIT IN ('AL','BA','BG','CZ','DE','IT','MK','MD','ME','PL','CH')",
+        polygonOptions: {
+          fillColor: "#ffb74d" // material design colors - orange
+        }
+      }, {
+        // level 3 - 3rd neighbours
+        where: "ISO_2DIGIT IN ('BE','DK','FR','GR','LT','LU','MC','NL','SE','TR')",
+        polygonOptions: {
+          fillColor: "#b2dfdb" // material design colors - teal
+        }
+      }, {
+        // level ? - undecided
+        where: "ISO_2DIGIT IN ('')",
+        polygonOptions: {
+          fillColor: "#78909c" // material design colors - gray
+        }
+      }, {
+        // level x - no-go countries
+        where: "ISO_2DIGIT IN ('')",
+        polygonOptions: {
+          fillColor: "#f44336" // material design colors - red
         }
       }]
     });
